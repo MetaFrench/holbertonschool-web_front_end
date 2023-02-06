@@ -1,0 +1,13 @@
+/* Task 2 - Text Color Variable to body, p, and BG Color Variable to body and h2 */
+$color: #3D3D3D;
+$background-color: #6D6D6D;
+
+body,
+p {
+  color: $color;
+}
+
+body,
+h2 {
+  background-color: $background-color;
+}
