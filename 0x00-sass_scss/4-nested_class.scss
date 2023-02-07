@@ -1,0 +1,10 @@
+/* Task 4 - Nested class */
+$body_color: #3D3D3D;
+$red_body: #FF0000;
+
+body {
+  color: $body_color;
+    .red {
+        color: $red_body;
+    }
+}
