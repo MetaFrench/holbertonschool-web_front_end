@@ -1,0 +1,10 @@
+/* Task 5 - Nested Child */
+$body_color: #3D3D3D;
+$red_child: #FF0000;
+
+body {
+    color: $body_color;
+    >.red {
+        color: $red_child;
+    }
+}
