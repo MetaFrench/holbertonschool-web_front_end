@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 9</title>
+        <!--<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous">
+        </script> --> 
+        <!-- Phatty version for AJAX -->
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+        </script>
+ 
+    </head>
+
+    <body>
+      <script type="application/javascript">
+
+        function addPostRow(data) {
+          let p = $('<p></p>');
+          let span = $('<span></span>');
+
+          span.append('Post created with id ID' + data.id + ' title: ' + data.title + ' author:' + data.author);
+          p.append(span);
+          $('body').append(p);
+        }
+
+        function addPost() {
+          $.get("http://localhost:3000/posts")
+          .done(function(data) {
+            data.forEach(item => {
+              addPostRow(item);
+            });
+          })
+          .fail(function() {
+            alert("Server Error");
+          })
+        }
+
+        listPosts();
+        
+      </script>
+    
+    </body>
+
+</html>
