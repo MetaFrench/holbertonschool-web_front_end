@@ -8,3 +8,36 @@
         <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous">
         </script>
     </head>
+
+    <body>
+      <script type="application/javascript">
+		    /*$(document).ready(function () {
+			    createFamilyTree(); how is this different from calling function below?
+		    });*/
+
+      function createFamilyTree() {
+        /* declaring a table */
+        $('body').append('<table></table>');
+        $('table').append('<thead></thead>');
+        $('thead').append('<tr></tr>');
+        /* table header */
+        $('tr').append(`<th></th>`, `<th></th>`);
+        $('th').eq(0).text('Firstname');
+        $('th').eq(1).text('Lastname');
+        /* table body */
+        $('table').append(`<tbody></tbody>`)
+        $('tbody').append(`<tr></tr>`, `<tr></tr>`, `<tr></tr>`);
+        $('tbody tr').append(`<td></td>`, `<td></td>`);
+        /* table body content */
+        $('tbody tr td').eq(0).text('Guillame');
+        $('tbody tr td').eq(1).text('Salva');
+        $('tbody tr td').eq(2).text('Paulette');
+        $('tbody tr td').eq(3).text('Salva')
+        $('tbody tr td').eq(4).text('Antoine');
+        $('tbody tr td').eq(5).text('Salva');        
+      }
+      createFamilyTree();
+      </script>
+    </body>
+
+</html>
