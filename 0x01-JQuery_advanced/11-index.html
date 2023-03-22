@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 9</title>
+        <!--<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous">
+        </script> --> 
+        <!-- Phatty version for AJAX -->
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+        </script>
+ 
+    </head>
+
+    <body>
+      <script type="application/javascript">
+
+        function addPostRow(data) {
+          let p = $('<p></p>');
+          let span = $('<span></span>');
+
+          span.append('Post created with id ID' + data.id + ' title: ' + data.title + ' author:' + data.author);
+          p.append(span);
+          $('body').append(p);
+        }
+
+        function addPost() {
+          $.get("http://localhost:3000/posts")
+          .done(function(data) {
+            data.forEach(item => {
+              addPostRow(item);
+            });
+          })
+          .fail(function() {
+            alert("Server Error");
+          })
+        }
+
+        function buildForm() {
+          let form = $('<form></form>');
+          let div1 = $('<div></div>');
+          let div2 = $('<div></div>');
+          let submit = $('<input type="submit" value="Submit">');
+        }
+
+        function sendForm() {
+          let val1 = $("input").val();
+          let val2 = $("textarea").val();
+          let data = {"title": val1, "author": val2};
+
+          $("form").after("About to send the query to the API");
+          $.ajax
+          ({
+            type: "POST",
+            url: "http://localhost:3000/posts",
+            data: data,
+            success: function (data) {
+              addPostRow(data);
+            },
+            error: function(error) {
+              alert("Error sending the POST query");
+            }
+          });
+        }          
+        
+        listPosts();
+        buildForm();
+        
+      </script>
+    
+    </body>
+
+</html>
