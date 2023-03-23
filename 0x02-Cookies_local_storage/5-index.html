@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 5 - Shopping Cart</title>
+</head>
+
+<body>
+  
+  <script>
+    // checks for local storage and available items
+    if (typeof(Storage) !== "undefined") {
+      const availableItems = ["Shampoo", "Soap", "Sponge", "Water"]; 
+
+    // create function to add item to cart
+    function addItemToCart(item) {
+      localStorage.setItem(item, true);
+      displayCart();
+    }
+
+    // create function to display cart
+    function displayCart() {
+    const numItems = Object.keys(localStorage).length;
+    if (numItems > 0) {
+      const message = document.createElement("p");
+      message.textContent = `You previously had ${numItems} item${numItems > 1 ? "s" : ""} in your cart`;
+      document.body.appendChild(message);
+      }
+    }
+
+    // create function to create store
+    function createStore() {
+      const ul = document.createElement("ul");
+      document.body.appendChild(ul);
+
+      availableItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        li.addEventListener("click", () => addItemToCart(item));
+        ul.appendChild(li);
+      });
+    }
+
+    // create store and display cart on load
+    createStore();
+    displayCart();
+    } else {
+      alert("Sorry, your browser does not support Web storage. Try again with a better one");
+    }
+
+  </script>
+  
+</body>
+</html>
