@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2</title>
+</head>
+<body>
+
+  <h1>Login to the website</h1>
+  <form>
+    <input type="text" id="firstname" value="Firstname">
+    <input type="text" id="email" value="Email">
+    <button onclick="setCookies()">Log me in</button>
+  </form>
+
+  <h1>Cookies</h1>
+  <button onclick="showCookies()">Show me Cookies!</button>
+  <hr>
+
+  <script type="text/javascript">
+    function setCookies() {
+      let firstname = document.getElementById("firstname").value;
+      let email = document.getElementById("email").value;
+
+      let date = new Date(Date.now() + (10*24*60*60*1000)); // Set to expire cookies in 10 days
+      date = date.toUTCString(); // "Thu, 01 Jan 1970 00:00:00 GMT"
+
+      document.cookie = 'firstname=${firstname}; expires=${date}; path=/';
+      document.cookie = 'email=${email}; expires=${date}; path=/';
+    }
+
+    function showCookies() {
+      let p = document.createElement("p").innerHTML = document.cookie;
+      p.innerHTML = `Email: ${getCookie('email')}<br>Firstname: ${getCookie('firstname')}`;
+      document.body.append(p);
+    }
+
+    function getCookie(name) {
+      let cookie = document.cookie.split(';').find(cookie => cookie.includes(name));
+      return cookie.split('=')[1];
+    }
+
+  </script>
+</body>
+</html>
