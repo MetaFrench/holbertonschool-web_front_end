@@ -1,1 +1,1 @@
-HELLO
+function welcome(firstName, lastName) 
