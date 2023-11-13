@@ -4,4 +4,8 @@ function welcome(firstName, lastName)
 function displayfullName() 
 	{
 	alert('Welcome ' + fullName + '!');
-	} 
+	}
+
+{
+displayFullName();
+} 
