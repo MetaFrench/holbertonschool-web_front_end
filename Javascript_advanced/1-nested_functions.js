@@ -1,1 +1,1 @@
-NewFile 
+let globalVariable = 'Welcome';
