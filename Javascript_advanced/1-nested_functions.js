@@ -9,5 +9,6 @@ let course = 'Holberton';
 
 function inner()
 	{
-	
+	alert(globalVariable + ' ' + course);
 	}
+
