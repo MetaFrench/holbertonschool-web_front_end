@@ -19,3 +19,7 @@ const startTime = performance.now();
 const primeCount = countPrimeNumbers();
 const endTime = performance.now();
 
+const executionTime = endTime - startTime;
+
+console.log(`Execution time of printing countPrimeNumbers was ${executionTime} milliseconds.`);
+
