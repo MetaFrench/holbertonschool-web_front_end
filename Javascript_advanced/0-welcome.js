@@ -1,16 +1,9 @@
-function welcome(firstName, lastName)
-	
-	var fullName = firstname + ' ' + lastName;
+function welcome(firstName, lastName) {
+    var fullName = firstName + ' ' + lastName;
 
-function displayfullName() 
-	
-{
-	alert('Welcome ' + fullName + '!');
-	
+    function displayFullName() {
+        alert('Welcome ' + fullName + '!');
+    }
+
+    displayFullName();
 }
-
-{
-	
-	displayFullName();
-
-} 
